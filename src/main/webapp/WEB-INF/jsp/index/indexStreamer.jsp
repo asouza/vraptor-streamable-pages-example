@@ -6,7 +6,8 @@
 </head>
 <body>
 	<p>inicio</p>	
-	${streamer.jsp(pageContext.out).local(8080).unorder("index/pagelet1", "index/pagelet2").await()}
+	<%-- @csokol, you could move this code for a tag :)--%>
+	${streamer.jsp(pageContext).local(8080).unorder("index/pagelet1", "index/pagelet2").await()}
 	<p>footer</p>	
 </body>
 </html>
