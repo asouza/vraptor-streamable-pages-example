@@ -8,6 +8,8 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.streamablepages.Streamer;
 
+import java.util.Random;
+
 @Controller
 public class IndexController {
 
@@ -33,30 +35,28 @@ public class IndexController {
 		session.setAttribute("user", "logged user");
 	}
 
-	@Path("/")
-	public void index() {
-		streamer.local(8080).order("index/header").unorder("index/pagelet1", "index/pagelet2").order("index/footer")
-				.unorder("index/pagelet1", "index/pagelet2").await();
-	}
-	
 	@Path("/streamed-result")
 	public void indexStreamer() {
-		
 	}
 
+	@Path("/not-streamed")
+	public void notStreamed() throws InterruptedException {
+        Thread.sleep(1000);
+	}
+
+    @Path("/header")
 	public void header() throws InterruptedException {
-		result.include("variable", "VRaptor!");
+        Thread.sleep(100);
 	}
 
-	public void pagelet1() throws InterruptedException {
-		Thread.sleep(2000);
+    @Path("/body")
+	public void body() throws InterruptedException {
+        Thread.sleep(800);
 	}
 
-	public void pagelet2() throws InterruptedException {
-		Thread.sleep(500);
+    @Path("/menu")
+	public void menu() throws InterruptedException {
+        Thread.sleep(100);
 	}
 
-	public void footer() throws InterruptedException {
-		Thread.sleep(2000);
-	}
 }
