@@ -44,19 +44,20 @@ public class IndexController {
         Thread.sleep(1000);
 	}
 
-    @Path("/header")
-	public void header() throws InterruptedException {
-        Thread.sleep(100);
-	}
-
-    @Path("/body")
-	public void body() throws InterruptedException {
+    @Path("/courses")
+	public void courses() throws InterruptedException {
         Thread.sleep(800);
 	}
 
-    @Path("/menu")
-	public void menu() throws InterruptedException {
-        Thread.sleep(100);
+    @Path("/blog")
+	public void blog() throws InterruptedException {
+        Thread.sleep(800);
 	}
+
+    @Path("/calendar")
+	public void calendar() throws InterruptedException {
+        Thread.sleep(800);
+	}
+
 
 }
